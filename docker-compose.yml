@@ -1,0 +1,67 @@
+services:
+  db:
+    image: mariadb:11.4
+    command: >
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+      --innodb-file-per-table=1
+    environment:
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${DB_NAME}
+      MARIADB_USER: ${DB_USER}
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./init-db:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    restart: unless-stopped
+
+  moodle:
+    image: moodlehq/moodle-php-apache:8.3
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${MOODLE_PORT:-8080}:80"
+    environment:
+      MOODLE_WWWROOT: ${MOODLE_WWWROOT}
+      DB_HOST: db
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ./moodle:/var/www/html
+      - ./config.php:/var/www/html/config.php:ro
+      - moodledata:/var/www/moodledata
+    restart: unless-stopped
+
+  cron:
+    image: moodlehq/moodle-php-apache:8.3
+    depends_on:
+      - moodle
+    entrypoint: ["/bin/sh", "-c", "while true; do php /var/www/html/admin/cli/cron.php; sleep 60; done"]
+    environment:
+      MOODLE_WWWROOT: ${MOODLE_WWWROOT}
+      DB_HOST: db
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ./moodle:/var/www/html
+      - ./config.php:/var/www/html/config.php:ro
+      - moodledata:/var/www/moodledata
+    restart: unless-stopped
+
+  # Jobe: öğrenci kodunu izole çalıştıran sandbox sunucusu.
+  # Port dışarıya açılmaz; Moodle ona iç ağdan "jobe" adıyla erişir.
+  jobe:
+    image: trampgeek/jobeinabox:latest
+    restart: unless-stopped
+
+volumes:
+  db_data:
+  moodledata:
