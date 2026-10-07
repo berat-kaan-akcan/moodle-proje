@@ -16,6 +16,8 @@ $CFG->wwwroot   = getenv('MOODLE_WWWROOT');
 $CFG->dataroot  = '/var/www/moodledata';
 $CFG->admin     = 'admin';
 $CFG->directorypermissions = 0777;
+// Özel giriş sayfası; DB'deki sabit localhost adresi yerine wwwroot'u takip etsin
+$CFG->alternateloginurl = $CFG->wwwroot . '/login/index_auth.php';
 
 // Geliştirme ayarları
 $CFG->debug = (E_ALL | E_STRICT);
