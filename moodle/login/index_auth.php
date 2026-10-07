@@ -40,8 +40,8 @@ $logintoken = \core\session\manager::get_login_token();
     <script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script>
     <link rel="stylesheet" type="text/css" href="all.css" />
     <meta name="robots" content="noindex" />
-    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700,300italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='offline/roboto/roboto.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="offline/font-awesome/css/font-awesome.min.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <script src="../lib/jquery/jquery-3.7.1.min.js"></script>
