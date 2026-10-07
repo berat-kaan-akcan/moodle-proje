@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <question type="category">
+   <category><text>$course$/top/Python Sinav/Final - Paket C</text></category>
+  </question>
+  <question type="coderunner">
+   <name><text>s1_bolme - Bölüm ve kalan [Paket C]</text></name>
+   <questiontext format="html"><text><![CDATA[<p>İki pozitif tam sayı <code>a</code> ve <code>b</code> okuyun (ayrı satırlarda). Tek satırda <code>a // b</code> ve <code>a % b</code> değerlerini boşlukla ayırarak yazdırın.</p>]]></text></questiontext>
+   <generalfeedback format="html"><text></text></generalfeedback>
+   <defaultgrade>10</defaultgrade>
+   <penalty>0.1</penalty>
+   <hidden>0</hidden>
+   <coderunnertype>python3</coderunnertype>
+   <prototypetype>0</prototypetype>
+   <allornothing>0</allornothing>
+   <penaltyregime>10, 20, ...</penaltyregime>
+   <precheck>0</precheck>
+   <hidecheck>0</hidecheck>
+   <showsource>0</showsource>
+   <answerboxlines>18</answerboxlines>
+   <answerboxcolumns>100</answerboxcolumns>
+   <answerpreload></answerpreload>
+   <globalextra></globalextra>
+   <useace>1</useace>
+   <resultcolumns></resultcolumns>
+   <template></template>
+   <iscombinatortemplate></iscombinatortemplate>
+   <allowmultiplestdins></allowmultiplestdins>
+   <answer><![CDATA[a = int(input())
+b = int(input())
+print(a // b, a % b)
+]]></answer>
+   <validateonsave>1</validateonsave>
+   <testsplitterre></testsplitterre>
+   <language></language>
+   <acelang></acelang>
+   <sandbox></sandbox>
+   <grader></grader>
+   <cputimelimitsecs></cputimelimitsecs>
+   <memlimitmb></memlimitmb>
+   <sandboxparams></sandboxparams>
+   <testcases>
+   <testcase testtype="0" useasexample="1" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[]]></text></testcode>
+    <stdin><text><![CDATA[17
+5
+]]></text></stdin>
+    <expected><text><![CDATA[3 2]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>SHOW</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="1" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[]]></text></testcode>
+    <stdin><text><![CDATA[10
+2
+]]></text></stdin>
+    <expected><text><![CDATA[5 0]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>SHOW</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[]]></text></testcode>
+    <stdin><text><![CDATA[3
+7
+]]></text></stdin>
+    <expected><text><![CDATA[0 3]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[]]></text></testcode>
+    <stdin><text><![CDATA[100
+9
+]]></text></stdin>
+    <expected><text><![CDATA[11 1]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[]]></text></testcode>
+    <stdin><text><![CDATA[1
+1
+]]></text></stdin>
+    <expected><text><![CDATA[1 0]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   </testcases>
+  </question>
+  <question type="coderunner">
+   <name><text>s2_artikyil - Artık yıl [Paket C]</text></name>
+   <questiontext format="html"><text><![CDATA[<p><code>artik_mi(yil)</code> fonksiyonunu yazın. Yıl artık ise <code>True</code>, değilse <code>False</code> döndürsün.</p>
+
+<p>Kural: 4&#x27;e bölünür <b>ama</b> 100&#x27;e bölünmez, <b>ya da</b> 400&#x27;e bölünür.</p>]]></text></questiontext>
+   <generalfeedback format="html"><text></text></generalfeedback>
+   <defaultgrade>15</defaultgrade>
+   <penalty>0.1</penalty>
+   <hidden>0</hidden>
+   <coderunnertype>python3</coderunnertype>
+   <prototypetype>0</prototypetype>
+   <allornothing>0</allornothing>
+   <penaltyregime>10, 20, ...</penaltyregime>
+   <precheck>0</precheck>
+   <hidecheck>0</hidecheck>
+   <showsource>0</showsource>
+   <answerboxlines>18</answerboxlines>
+   <answerboxcolumns>100</answerboxcolumns>
+   <answerpreload></answerpreload>
+   <globalextra></globalextra>
+   <useace>1</useace>
+   <resultcolumns></resultcolumns>
+   <template></template>
+   <iscombinatortemplate></iscombinatortemplate>
+   <allowmultiplestdins></allowmultiplestdins>
+   <answer><![CDATA[def artik_mi(yil):
+    return (yil % 4 == 0 and yil % 100 != 0) or yil % 400 == 0
+]]></answer>
+   <validateonsave>1</validateonsave>
+   <testsplitterre></testsplitterre>
+   <language></language>
+   <acelang></acelang>
+   <sandbox></sandbox>
+   <grader></grader>
+   <cputimelimitsecs></cputimelimitsecs>
+   <memlimitmb></memlimitmb>
+   <sandboxparams></sandboxparams>
+   <testcases>
+   <testcase testtype="0" useasexample="1" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(artik_mi(2024))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[True]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>SHOW</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="1" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(artik_mi(2023))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[False]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>SHOW</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(artik_mi(1900))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[False]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(artik_mi(2000))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[True]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(artik_mi(2100))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[False]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(artik_mi(1996))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[True]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(artik_mi(1))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[False]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   </testcases>
+  </question>
+  <question type="coderunner">
+   <name><text>s3_basamak - Basamaklar toplamı [Paket C]</text></name>
+   <questiontext format="html"><text><![CDATA[<p><code>basamak_toplami(n)</code> fonksiyonu bir tam sayının basamaklarının toplamını döndürsün. <b>String&#x27;e çevirmeden</b> (<code>%</code> ve <code>//</code> ile) yazın. Negatif sayılarda işareti yok sayın.</p>]]></text></questiontext>
+   <generalfeedback format="html"><text></text></generalfeedback>
+   <defaultgrade>15</defaultgrade>
+   <penalty>0.1</penalty>
+   <hidden>0</hidden>
+   <coderunnertype>python3</coderunnertype>
+   <prototypetype>0</prototypetype>
+   <allornothing>0</allornothing>
+   <penaltyregime>10, 20, ...</penaltyregime>
+   <precheck>0</precheck>
+   <hidecheck>0</hidecheck>
+   <showsource>0</showsource>
+   <answerboxlines>18</answerboxlines>
+   <answerboxcolumns>100</answerboxcolumns>
+   <answerpreload></answerpreload>
+   <globalextra></globalextra>
+   <useace>1</useace>
+   <resultcolumns></resultcolumns>
+   <template></template>
+   <iscombinatortemplate></iscombinatortemplate>
+   <allowmultiplestdins></allowmultiplestdins>
+   <answer><![CDATA[def basamak_toplami(n):
+    n = abs(n)
+    t = 0
+    while n > 0:
+        t += n % 10
+        n //= 10
+    return t
+]]></answer>
+   <validateonsave>1</validateonsave>
+   <testsplitterre></testsplitterre>
+   <language></language>
+   <acelang></acelang>
+   <sandbox></sandbox>
+   <grader></grader>
+   <cputimelimitsecs></cputimelimitsecs>
+   <memlimitmb></memlimitmb>
+   <sandboxparams></sandboxparams>
+   <testcases>
+   <testcase testtype="0" useasexample="1" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(basamak_toplami(123))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[6]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>SHOW</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="1" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(basamak_toplami(0))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[0]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>SHOW</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(basamak_toplami(9))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[9]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(basamak_toplami(1000))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[1]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(basamak_toplami(-456))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[15]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(basamak_toplami(99999))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[45]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(basamak_toplami(1234567890))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[45]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   </testcases>
+  </question>
+  <question type="coderunner">
+   <name><text>s4_anagram - Anagram [Paket C]</text></name>
+   <questiontext format="html"><text><![CDATA[<p><code>anagram_mi(a, b)</code> fonksiyonu iki kelime birbirinin anagramı ise <code>True</code> döndürsün. Büyük/küçük harf ve boşluklar yok sayılır.</p>]]></text></questiontext>
+   <generalfeedback format="html"><text></text></generalfeedback>
+   <defaultgrade>15</defaultgrade>
+   <penalty>0.1</penalty>
+   <hidden>0</hidden>
+   <coderunnertype>python3</coderunnertype>
+   <prototypetype>0</prototypetype>
+   <allornothing>0</allornothing>
+   <penaltyregime>10, 20, ...</penaltyregime>
+   <precheck>0</precheck>
+   <hidecheck>0</hidecheck>
+   <showsource>0</showsource>
+   <answerboxlines>18</answerboxlines>
+   <answerboxcolumns>100</answerboxcolumns>
+   <answerpreload></answerpreload>
+   <globalextra></globalextra>
+   <useace>1</useace>
+   <resultcolumns></resultcolumns>
+   <template></template>
+   <iscombinatortemplate></iscombinatortemplate>
+   <allowmultiplestdins></allowmultiplestdins>
+   <answer><![CDATA[def anagram_mi(a, b):
+    f = lambda s: sorted(s.replace(' ', '').lower())
+    return f(a) == f(b)
+]]></answer>
+   <validateonsave>1</validateonsave>
+   <testsplitterre></testsplitterre>
+   <language></language>
+   <acelang></acelang>
+   <sandbox></sandbox>
+   <grader></grader>
+   <cputimelimitsecs></cputimelimitsecs>
+   <memlimitmb></memlimitmb>
+   <sandboxparams></sandboxparams>
+   <testcases>
+   <testcase testtype="0" useasexample="1" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(anagram_mi("listen", "silent"))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[True]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>SHOW</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="1" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(anagram_mi("Dormitory", "dirty room"))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[True]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>SHOW</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(anagram_mi("abc", "abd"))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[False]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(anagram_mi("aab", "abb"))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[False]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(anagram_mi("", ""))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[True]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(anagram_mi("abc", "ab"))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[False]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   </testcases>
+  </question>
+  <question type="coderunner">
+   <name><text>s5_toplam_ikili - İki sayı toplamı (Two Sum) [Paket C]</text></name>
+   <questiontext format="html"><text><![CDATA[<p><code>iki_toplam(liste, hedef)</code> fonksiyonu, toplamı <code>hedef</code> eden iki <b>farklı indeksi</b> <code>(i, j)</code> (<code>i &lt; j</code>) demeti olarak döndürsün. Birden çok çözüm varsa <code>i</code> en küçük, sonra <code>j</code> en küçük olan seçilir. Çözüm yoksa <code>None</code>.</p>]]></text></questiontext>
+   <generalfeedback format="html"><text></text></generalfeedback>
+   <defaultgrade>20</defaultgrade>
+   <penalty>0.1</penalty>
+   <hidden>0</hidden>
+   <coderunnertype>python3</coderunnertype>
+   <prototypetype>0</prototypetype>
+   <allornothing>0</allornothing>
+   <penaltyregime>10, 20, ...</penaltyregime>
+   <precheck>0</precheck>
+   <hidecheck>0</hidecheck>
+   <showsource>0</showsource>
+   <answerboxlines>18</answerboxlines>
+   <answerboxcolumns>100</answerboxcolumns>
+   <answerpreload></answerpreload>
+   <globalextra></globalextra>
+   <useace>1</useace>
+   <resultcolumns></resultcolumns>
+   <template></template>
+   <iscombinatortemplate></iscombinatortemplate>
+   <allowmultiplestdins></allowmultiplestdins>
+   <answer><![CDATA[def iki_toplam(liste, hedef):
+    for i in range(len(liste)):
+        for j in range(i + 1, len(liste)):
+            if liste[i] + liste[j] == hedef:
+                return (i, j)
+    return None
+]]></answer>
+   <validateonsave>1</validateonsave>
+   <testsplitterre></testsplitterre>
+   <language></language>
+   <acelang></acelang>
+   <sandbox></sandbox>
+   <grader></grader>
+   <cputimelimitsecs></cputimelimitsecs>
+   <memlimitmb></memlimitmb>
+   <sandboxparams></sandboxparams>
+   <testcases>
+   <testcase testtype="0" useasexample="1" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(iki_toplam([2, 7, 11, 15], 9))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[(0, 1)]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>SHOW</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="1" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(iki_toplam([3, 2, 4], 6))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[(1, 2)]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>SHOW</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(iki_toplam([1, 2, 3], 10))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[None]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(iki_toplam([3, 3], 6))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[(0, 1)]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(iki_toplam([], 0))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[None]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(iki_toplam([5], 10))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[None]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(iki_toplam([1, 4, 5, 6, 4], 8))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[(1, 4)]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(iki_toplam([0, 4, 3, 0], 0))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[(0, 3)]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   </testcases>
+  </question>
+  <question type="coderunner">
+   <name><text>s6_guvenli_bol - Güvenli bölme (istisna) [Paket C]</text></name>
+   <questiontext format="html"><text><![CDATA[<p>Her satırda <code>a b</code> biçiminde iki değer gelir; girdi <code>son</code> satırıyla biter. Her satır için <code>a / b</code> sonucunu <b>iki ondalık</b> yazdırın. Hata durumlarında şu mesajlar yazılır:</p>
+
+<ul>
+<li><code>b</code> sıfır → <code>Sifira bolunemez</code></li>
+<li>sayıya çevrilemeyen değer → <code>Gecersiz giris</code></li>
+</ul>
+
+<p><code>try/except</code> kullanın.</p>]]></text></questiontext>
+   <generalfeedback format="html"><text></text></generalfeedback>
+   <defaultgrade>25</defaultgrade>
+   <penalty>0.1</penalty>
+   <hidden>0</hidden>
+   <coderunnertype>python3</coderunnertype>
+   <prototypetype>0</prototypetype>
+   <allornothing>0</allornothing>
+   <penaltyregime>10, 20, ...</penaltyregime>
+   <precheck>0</precheck>
+   <hidecheck>0</hidecheck>
+   <showsource>0</showsource>
+   <answerboxlines>18</answerboxlines>
+   <answerboxcolumns>100</answerboxcolumns>
+   <answerpreload></answerpreload>
+   <globalextra></globalextra>
+   <useace>1</useace>
+   <resultcolumns></resultcolumns>
+   <template></template>
+   <iscombinatortemplate></iscombinatortemplate>
+   <allowmultiplestdins></allowmultiplestdins>
+   <answer><![CDATA[while True:
+    satir = input()
+    if satir == 'son':
+        break
+    try:
+        a, b = satir.split()
+        print(f'{float(a) / float(b):.2f}')
+    except ZeroDivisionError:
+        print('Sifira bolunemez')
+    except ValueError:
+        print('Gecersiz giris')
+]]></answer>
+   <validateonsave>1</validateonsave>
+   <testsplitterre></testsplitterre>
+   <language></language>
+   <acelang></acelang>
+   <sandbox></sandbox>
+   <grader></grader>
+   <cputimelimitsecs></cputimelimitsecs>
+   <memlimitmb></memlimitmb>
+   <sandboxparams></sandboxparams>
+   <testcases>
+   <testcase testtype="0" useasexample="1" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[]]></text></testcode>
+    <stdin><text><![CDATA[10 4
+son
+]]></text></stdin>
+    <expected><text><![CDATA[2.50]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>SHOW</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="1" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[]]></text></testcode>
+    <stdin><text><![CDATA[5 0
+son
+]]></text></stdin>
+    <expected><text><![CDATA[Sifira bolunemez]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>SHOW</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[]]></text></testcode>
+    <stdin><text><![CDATA[abc 2
+son
+]]></text></stdin>
+    <expected><text><![CDATA[Gecersiz giris]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[]]></text></testcode>
+    <stdin><text><![CDATA[1 3
+7 2
+9 0
+x y
+son
+]]></text></stdin>
+    <expected><text><![CDATA[0.33
+3.50
+Sifira bolunemez
+Gecersiz giris]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[]]></text></testcode>
+    <stdin><text><![CDATA[son
+]]></text></stdin>
+    <expected><text><![CDATA[]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[]]></text></testcode>
+    <stdin><text><![CDATA[-6 4
+0 5
+son
+]]></text></stdin>
+    <expected><text><![CDATA[-1.50
+0.00]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   </testcases>
+  </question>
+</quiz>

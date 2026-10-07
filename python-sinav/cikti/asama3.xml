@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <question type="category">
+   <category><text>$course$/top/Python Sinav/Asama 3 - Döngüler (for-while)</text></category>
+  </question>
+  <question type="coderunner">
+   <name><text>s3_toplam - 1&#x27;den n&#x27;e toplam</text></name>
+   <questiontext format="html"><text><![CDATA[<p><code>toplam(n)</code> fonksiyonu, <b>döngü kullanarak</b> 1&#x27;den <code>n</code>&#x27;e kadar (n dahil) olan sayıların toplamını döndürsün. <code>n &lt; 1</code> ise <code>0</code> döndürsün.</p>]]></text></questiontext>
+   <generalfeedback format="html"><text></text></generalfeedback>
+   <defaultgrade>10</defaultgrade>
+   <penalty>0.1</penalty>
+   <hidden>0</hidden>
+   <coderunnertype>python3</coderunnertype>
+   <prototypetype>0</prototypetype>
+   <allornothing>0</allornothing>
+   <penaltyregime>10, 20, ...</penaltyregime>
+   <precheck>0</precheck>
+   <hidecheck>0</hidecheck>
+   <showsource>0</showsource>
+   <answerboxlines>18</answerboxlines>
+   <answerboxcolumns>100</answerboxcolumns>
+   <answerpreload></answerpreload>
+   <globalextra></globalextra>
+   <useace>1</useace>
+   <resultcolumns></resultcolumns>
+   <template></template>
+   <iscombinatortemplate></iscombinatortemplate>
+   <allowmultiplestdins></allowmultiplestdins>
+   <answer><![CDATA[def toplam(n):
+    t = 0
+    for i in range(1, n + 1):
+        t += i
+    return t
+]]></answer>
+   <validateonsave>1</validateonsave>
+   <testsplitterre></testsplitterre>
+   <language></language>
+   <acelang></acelang>
+   <sandbox></sandbox>
+   <grader></grader>
+   <cputimelimitsecs></cputimelimitsecs>
+   <memlimitmb></memlimitmb>
+   <sandboxparams></sandboxparams>
+   <testcases>
+   <testcase testtype="0" useasexample="1" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(toplam(1))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[1]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>SHOW</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="1" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(toplam(5))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[15]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>SHOW</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(toplam(10))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[55]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(toplam(100))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[5050]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(toplam(0))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[0]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(toplam(-3))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[0]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(toplam(1000))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[500500]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   </testcases>
+  </question>
+  <question type="coderunner">
+   <name><text>s3_faktoriyel - Faktöriyel</text></name>
+   <questiontext format="html"><text><![CDATA[<p><code>faktoriyel(n)</code> fonksiyonunu <b>döngü ile</b> yazın (<code>math.factorial</code> yasak). <code>0! = 1</code>. <code>n</code> negatifse <code>-1</code> döndürün.</p>]]></text></questiontext>
+   <generalfeedback format="html"><text></text></generalfeedback>
+   <defaultgrade>10</defaultgrade>
+   <penalty>0.1</penalty>
+   <hidden>0</hidden>
+   <coderunnertype>python3</coderunnertype>
+   <prototypetype>0</prototypetype>
+   <allornothing>0</allornothing>
+   <penaltyregime>10, 20, ...</penaltyregime>
+   <precheck>0</precheck>
+   <hidecheck>0</hidecheck>
+   <showsource>0</showsource>
+   <answerboxlines>18</answerboxlines>
+   <answerboxcolumns>100</answerboxcolumns>
+   <answerpreload></answerpreload>
+   <globalextra></globalextra>
+   <useace>1</useace>
+   <resultcolumns></resultcolumns>
+   <template></template>
+   <iscombinatortemplate></iscombinatortemplate>
+   <allowmultiplestdins></allowmultiplestdins>
+   <answer><![CDATA[def faktoriyel(n):
+    if n < 0:
+        return -1
+    s = 1
+    for i in range(2, n + 1):
+        s *= i
+    return s
+]]></answer>
+   <validateonsave>1</validateonsave>
+   <testsplitterre></testsplitterre>
+   <language></language>
+   <acelang></acelang>
+   <sandbox></sandbox>
+   <grader></grader>
+   <cputimelimitsecs></cputimelimitsecs>
+   <memlimitmb></memlimitmb>
+   <sandboxparams></sandboxparams>
+   <testcases>
+   <testcase testtype="0" useasexample="1" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(faktoriyel(0))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[1]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>SHOW</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="1" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(faktoriyel(1))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[1]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>SHOW</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(faktoriyel(5))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[120]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(faktoriyel(10))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[3628800]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(faktoriyel(-2))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[-1]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(faktoriyel(15))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[1307674368000]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(faktoriyel(20))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[2432902008176640000]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   </testcases>
+  </question>
+  <question type="coderunner">
+   <name><text>s3_asal - Asal mı?</text></name>
+   <questiontext format="html"><text><![CDATA[<p><code>asal_mi(n)</code> fonksiyonu <code>n</code> asal ise <code>True</code>, değilse <code>False</code> döndürsün. (0, 1 ve negatifler asal değildir.)</p>]]></text></questiontext>
+   <generalfeedback format="html"><text></text></generalfeedback>
+   <defaultgrade>10</defaultgrade>
+   <penalty>0.1</penalty>
+   <hidden>0</hidden>
+   <coderunnertype>python3</coderunnertype>
+   <prototypetype>0</prototypetype>
+   <allornothing>0</allornothing>
+   <penaltyregime>10, 20, ...</penaltyregime>
+   <precheck>0</precheck>
+   <hidecheck>0</hidecheck>
+   <showsource>0</showsource>
+   <answerboxlines>18</answerboxlines>
+   <answerboxcolumns>100</answerboxcolumns>
+   <answerpreload></answerpreload>
+   <globalextra></globalextra>
+   <useace>1</useace>
+   <resultcolumns></resultcolumns>
+   <template></template>
+   <iscombinatortemplate></iscombinatortemplate>
+   <allowmultiplestdins></allowmultiplestdins>
+   <answer><![CDATA[def asal_mi(n):
+    if n < 2:
+        return False
+    i = 2
+    while i * i <= n:
+        if n % i == 0:
+            return False
+        i += 1
+    return True
+]]></answer>
+   <validateonsave>1</validateonsave>
+   <testsplitterre></testsplitterre>
+   <language></language>
+   <acelang></acelang>
+   <sandbox></sandbox>
+   <grader></grader>
+   <cputimelimitsecs></cputimelimitsecs>
+   <memlimitmb></memlimitmb>
+   <sandboxparams></sandboxparams>
+   <testcases>
+   <testcase testtype="0" useasexample="1" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(asal_mi(2))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[True]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>SHOW</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="1" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(asal_mi(3))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[True]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>SHOW</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(asal_mi(4))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[False]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(asal_mi(1))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[False]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(asal_mi(0))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[False]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(asal_mi(-7))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[False]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(asal_mi(17))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[True]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(asal_mi(25))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[False]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(asal_mi(97))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[True]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(asal_mi(100))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[False]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(asal_mi(7919))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[True]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   </testcases>
+  </question>
+  <question type="coderunner">
+   <name><text>s3_fizzbuzz - FizzBuzz</text></name>
+   <questiontext format="html"><text><![CDATA[<p><code>n</code> okuyun. 1&#x27;den <code>n</code>&#x27;e kadar her sayıyı ayrı satıra yazdırın; ancak 3&#x27;ün katı ise <code>Fizz</code>, 5&#x27;in katı ise <code>Buzz</code>, ikisinin de katı ise <code>FizzBuzz</code> yazdırın.</p>]]></text></questiontext>
+   <generalfeedback format="html"><text></text></generalfeedback>
+   <defaultgrade>10</defaultgrade>
+   <penalty>0.1</penalty>
+   <hidden>0</hidden>
+   <coderunnertype>python3</coderunnertype>
+   <prototypetype>0</prototypetype>
+   <allornothing>0</allornothing>
+   <penaltyregime>10, 20, ...</penaltyregime>
+   <precheck>0</precheck>
+   <hidecheck>0</hidecheck>
+   <showsource>0</showsource>
+   <answerboxlines>18</answerboxlines>
+   <answerboxcolumns>100</answerboxcolumns>
+   <answerpreload></answerpreload>
+   <globalextra></globalextra>
+   <useace>1</useace>
+   <resultcolumns></resultcolumns>
+   <template></template>
+   <iscombinatortemplate></iscombinatortemplate>
+   <allowmultiplestdins></allowmultiplestdins>
+   <answer><![CDATA[n = int(input())
+for i in range(1, n + 1):
+    if i % 15 == 0:
+        print('FizzBuzz')
+    elif i % 3 == 0:
+        print('Fizz')
+    elif i % 5 == 0:
+        print('Buzz')
+    else:
+        print(i)
+]]></answer>
+   <validateonsave>1</validateonsave>
+   <testsplitterre></testsplitterre>
+   <language></language>
+   <acelang></acelang>
+   <sandbox></sandbox>
+   <grader></grader>
+   <cputimelimitsecs></cputimelimitsecs>
+   <memlimitmb></memlimitmb>
+   <sandboxparams></sandboxparams>
+   <testcases>
+   <testcase testtype="0" useasexample="1" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[]]></text></testcode>
+    <stdin><text><![CDATA[1
+]]></text></stdin>
+    <expected><text><![CDATA[1]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>SHOW</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="1" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[]]></text></testcode>
+    <stdin><text><![CDATA[5
+]]></text></stdin>
+    <expected><text><![CDATA[1
+2
+Fizz
+4
+Buzz]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>SHOW</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[]]></text></testcode>
+    <stdin><text><![CDATA[15
+]]></text></stdin>
+    <expected><text><![CDATA[1
+2
+Fizz
+4
+Buzz
+Fizz
+7
+8
+Fizz
+Buzz
+11
+Fizz
+13
+14
+FizzBuzz]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[]]></text></testcode>
+    <stdin><text><![CDATA[20
+]]></text></stdin>
+    <expected><text><![CDATA[1
+2
+Fizz
+4
+Buzz
+Fizz
+7
+8
+Fizz
+Buzz
+11
+Fizz
+13
+14
+FizzBuzz
+16
+17
+Fizz
+19
+Buzz]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[]]></text></testcode>
+    <stdin><text><![CDATA[0
+]]></text></stdin>
+    <expected><text><![CDATA[]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[]]></text></testcode>
+    <stdin><text><![CDATA[30
+]]></text></stdin>
+    <expected><text><![CDATA[1
+2
+Fizz
+4
+Buzz
+Fizz
+7
+8
+Fizz
+Buzz
+11
+Fizz
+13
+14
+FizzBuzz
+16
+17
+Fizz
+19
+Buzz
+Fizz
+22
+23
+Fizz
+Buzz
+26
+Fizz
+28
+29
+FizzBuzz]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   </testcases>
+  </question>
+  <question type="coderunner">
+   <name><text>s3_basamak - Basamaklar toplamı</text></name>
+   <questiontext format="html"><text><![CDATA[<p><code>basamak_toplami(n)</code> fonksiyonu bir tam sayının basamaklarının toplamını döndürsün. <b>String&#x27;e çevirmeden</b> (<code>%</code> ve <code>//</code> ile) yazın. Negatif sayılarda işareti yok sayın.</p>]]></text></questiontext>
+   <generalfeedback format="html"><text></text></generalfeedback>
+   <defaultgrade>10</defaultgrade>
+   <penalty>0.1</penalty>
+   <hidden>0</hidden>
+   <coderunnertype>python3</coderunnertype>
+   <prototypetype>0</prototypetype>
+   <allornothing>0</allornothing>
+   <penaltyregime>10, 20, ...</penaltyregime>
+   <precheck>0</precheck>
+   <hidecheck>0</hidecheck>
+   <showsource>0</showsource>
+   <answerboxlines>18</answerboxlines>
+   <answerboxcolumns>100</answerboxcolumns>
+   <answerpreload></answerpreload>
+   <globalextra></globalextra>
+   <useace>1</useace>
+   <resultcolumns></resultcolumns>
+   <template></template>
+   <iscombinatortemplate></iscombinatortemplate>
+   <allowmultiplestdins></allowmultiplestdins>
+   <answer><![CDATA[def basamak_toplami(n):
+    n = abs(n)
+    t = 0
+    while n > 0:
+        t += n % 10
+        n //= 10
+    return t
+]]></answer>
+   <validateonsave>1</validateonsave>
+   <testsplitterre></testsplitterre>
+   <language></language>
+   <acelang></acelang>
+   <sandbox></sandbox>
+   <grader></grader>
+   <cputimelimitsecs></cputimelimitsecs>
+   <memlimitmb></memlimitmb>
+   <sandboxparams></sandboxparams>
+   <testcases>
+   <testcase testtype="0" useasexample="1" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(basamak_toplami(123))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[6]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>SHOW</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="1" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(basamak_toplami(0))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[0]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>SHOW</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(basamak_toplami(9))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[9]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(basamak_toplami(1000))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[1]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(basamak_toplami(-456))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[15]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(basamak_toplami(99999))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[45]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[print(basamak_toplami(1234567890))]]></text></testcode>
+    <stdin><text><![CDATA[]]></text></stdin>
+    <expected><text><![CDATA[45]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   </testcases>
+  </question>
+  <question type="coderunner">
+   <name><text>s3_ucgen_yildiz - Yıldız üçgeni</text></name>
+   <questiontext format="html"><text><![CDATA[<p><code>n</code> okuyun. Sağa dayalı yıldız üçgeni çizin: <code>i</code>. satırda önce <code>n-i</code> boşluk, sonra <code>i</code> tane <code>*</code> olsun.</p>
+
+<p><code>n=3</code> için:</p>
+<pre>
+  *
+ **
+***
+</pre>]]></text></questiontext>
+   <generalfeedback format="html"><text></text></generalfeedback>
+   <defaultgrade>10</defaultgrade>
+   <penalty>0.1</penalty>
+   <hidden>0</hidden>
+   <coderunnertype>python3</coderunnertype>
+   <prototypetype>0</prototypetype>
+   <allornothing>0</allornothing>
+   <penaltyregime>10, 20, ...</penaltyregime>
+   <precheck>0</precheck>
+   <hidecheck>0</hidecheck>
+   <showsource>0</showsource>
+   <answerboxlines>18</answerboxlines>
+   <answerboxcolumns>100</answerboxcolumns>
+   <answerpreload></answerpreload>
+   <globalextra></globalextra>
+   <useace>1</useace>
+   <resultcolumns></resultcolumns>
+   <template></template>
+   <iscombinatortemplate></iscombinatortemplate>
+   <allowmultiplestdins></allowmultiplestdins>
+   <answer><![CDATA[n = int(input())
+for i in range(1, n + 1):
+    print(' ' * (n - i) + '*' * i)
+]]></answer>
+   <validateonsave>1</validateonsave>
+   <testsplitterre></testsplitterre>
+   <language></language>
+   <acelang></acelang>
+   <sandbox></sandbox>
+   <grader></grader>
+   <cputimelimitsecs></cputimelimitsecs>
+   <memlimitmb></memlimitmb>
+   <sandboxparams></sandboxparams>
+   <testcases>
+   <testcase testtype="0" useasexample="1" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[]]></text></testcode>
+    <stdin><text><![CDATA[3
+]]></text></stdin>
+    <expected><text><![CDATA[  *
+ **
+***]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>SHOW</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="1" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[]]></text></testcode>
+    <stdin><text><![CDATA[1
+]]></text></stdin>
+    <expected><text><![CDATA[*]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>SHOW</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[]]></text></testcode>
+    <stdin><text><![CDATA[5
+]]></text></stdin>
+    <expected><text><![CDATA[    *
+   **
+  ***
+ ****
+*****]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[]]></text></testcode>
+    <stdin><text><![CDATA[0
+]]></text></stdin>
+    <expected><text><![CDATA[]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000">
+    <testcode><text><![CDATA[]]></text></testcode>
+    <stdin><text><![CDATA[7
+]]></text></stdin>
+    <expected><text><![CDATA[      *
+     **
+    ***
+   ****
+  *****
+ ******
+*******]]></text></expected>
+    <extra><text></text></extra>
+    <display><text>HIDE</text></display>
+   </testcase>
+   </testcases>
+  </question>
+</quiz>
