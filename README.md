@@ -110,5 +110,9 @@ docker compose exec -T db mariadb-dump -u moodle -pmoodle_degistir moodle > init
 
 ---
 
-## 📖 Detaylı Kullanım Kılavuzu
-Kurs açma, toplu öğrenci/öğretmen yükleme (CSV), rol atama ve CodeRunner soru hazırlama adımları için projedeki [KULLANIM_KILAVUZU.md](KULLANIM_KILAVUZU.md) dosyasını inceleyebilirsiniz.
+## 📖 Belgeler
+| Belge | İçerik |
+|---|---|
+| [docs/KILAVUZ.md](docs/KILAVUZ.md) | Kurulum, kullanıcı/kurs yönetimi, CodeRunner soru hazırlama, sınav kurma, lab günü, yedekleme, sorun giderme |
+| [docs/RAPOR.md](docs/RAPOR.md) | Proje raporu: yapılanlar, açık konular, test durumu özeti |
+| [docs/TEST_KILAVUZU.md](docs/TEST_KILAVUZU.md) | İnternetsiz lab testi: terminal komutları, hazır betikler (`test/`), sonuç formu |

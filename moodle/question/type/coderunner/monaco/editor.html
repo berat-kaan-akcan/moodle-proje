@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  html, body, #container { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #1e1e1e; }
+</style>
+<link rel="stylesheet" href="vs/editor/editor.main.css">
+</head>
+<body>
+<div id="container"></div>
+<script src="vs/loader.js"></script>
+<script>
+(function() {
+    var base = new URL('.', location.href).href.replace(/\/$/, '');
+    require.config({paths: {vs: base + '/vs'}});
+    window.MonacoEnvironment = {
+        getWorkerUrl: function() {
+            var src = "self.MonacoEnvironment={baseUrl:'" + base + "/'};" +
+                      "importScripts('" + base + "/vs/base/worker/workerMain.js');";
+            return URL.createObjectURL(new Blob([src], {type: 'text/javascript'}));
+        }
+    };
+    // The parent (ui_monaco.js) calls window.initMonaco(options) once this page has loaded.
+    window.initMonaco = function(options, done) {
+        require(['vs/editor/editor.main'], function() {
+            var editor = monaco.editor.create(document.getElementById('container'), options);
+            done(editor, monaco);
+        });
+    };
+    window.monacoPageReady = true;
+}());
+</script>
+</body>
+</html>

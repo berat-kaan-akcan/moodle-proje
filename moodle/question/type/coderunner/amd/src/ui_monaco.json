@@ -1,25 +1,25 @@
 {
-    "name": "ui_ace",
+    "name": "ui_monaco",
     "parameters": {
-        "auto_switch_light_dark": {
+        "font_size": {
+            "type": "string",
+            "default": "16"
+        },
+        "live_autocompletion": {
             "type": "boolean",
             "default": false
         },
-        "font_size": {
-            "type": "string",
-            "default": "16px"
+        "minimap": {
+            "type": "boolean",
+            "default": true
         },
         "import_from_scratchpad": {
             "type": "boolean",
             "default": true
         },
-        "live_autocompletion": {
-            "type": "boolean",
-            "default": true
-        },
         "theme": {
             "type": "string",
-            "default": "one_dark"
+            "default": "vs-dark"
         }
     }
 }
