@@ -1,0 +1,25 @@
+{
+    "name": "ui_monaco",
+    "parameters": {
+        "font_size": {
+            "type": "string",
+            "default": "16"
+        },
+        "live_autocompletion": {
+            "type": "boolean",
+            "default": false
+        },
+        "minimap": {
+            "type": "boolean",
+            "default": true
+        },
+        "import_from_scratchpad": {
+            "type": "boolean",
+            "default": true
+        },
+        "theme": {
+            "type": "string",
+            "default": "vs-dark"
+        }
+    }
+}

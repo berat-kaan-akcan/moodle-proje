@@ -83,6 +83,13 @@ define(['jquery'], function($) {
                 enableLiveAutocompletion: params.live_autocompletion,
                 fontSize: params.font_size ? params.font_size : "14px",
                 newLineMode: "unix",
+                tabSize: 4,
+                useSoftTabs: true,
+                showPrintMargin: false,
+                highlightActiveLine: true,
+                highlightSelectedWord: true,
+                behavioursEnabled: true,
+                fontFamily: "'Fira Code', 'Cascadia Code', Consolas, 'DejaVu Sans Mono', monospace",
             });
 
             this.editor.$blockScrolling = Infinity;
@@ -228,9 +235,9 @@ define(['jquery'], function($) {
         this.editor.commands.bindKeys({'Tab': 'indent', 'Shift-Tab': 'outdent'});
     };
 
+    // VS Code style: Tab always indents; never release it for focus navigation.
     AceWrapper.prototype.releaseTab = function () {
-        this.capturingTab = false;
-        this.editor.commands.bindKeys({'Tab': null, 'Shift-Tab': null});
+        this.captureTab();
     };
 
     // Sometimes Ace editors do not load until the mouse is moved. To fix this,

@@ -532,7 +532,7 @@ class qtype_coderunner_question extends question_graded_automatically {
     // modern question ui params.
     // Return the the merged parameters as an associative array.
     private function evaluate_merged_ui_parameters() {
-        $uiplugin = $this->uiplugin === null ? 'ace' : strtolower($this->uiplugin);
+        $uiplugin = $this->uiplugin === null ? 'monaco' : strtolower($this->uiplugin);
         $uiparams = new qtype_coderunner_ui_parameters($uiplugin);
         // Merge prototype's UI parameters unless prototype is missing or UI plugin has changed.
         if (isset($this->prototype->uiparameters) && strtolower($this->prototype->uiplugin) === $uiplugin) {

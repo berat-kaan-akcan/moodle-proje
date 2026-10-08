@@ -168,7 +168,7 @@ class qtype_coderunner_renderer extends qtype_renderer {
         // Initialise any JavaScript UI. Default is Ace unless uiplugin is explicitly
         // set and is neither the empty string nor the value 'none'.
         // Thanks to Ulrich Dangel for the original implementation of the Ace code editor.
-        $uiplugin = $question->uiplugin === null ? 'ace' : strtolower($question->uiplugin);
+        $uiplugin = $question->uiplugin === null ? 'monaco' : strtolower($question->uiplugin);
         if ($uiplugin !== '' && $uiplugin !== 'none') {
             qtype_coderunner_util::load_uiplugin_js($question, $responsefieldid);
             if (!empty($question->acelang) && strpos($question->acelang, ',') != false) {
@@ -620,7 +620,7 @@ class qtype_coderunner_renderer extends qtype_renderer {
         $html .= html_writer::tag('textarea', s($answer), $taattributes);
         $html .= html_writer::end_tag('div');
         $html .= html_writer::end_tag('div');
-        $uiplugin = $question->uiplugin === null ? 'ace' : strtolower($question->uiplugin);
+        $uiplugin = $question->uiplugin === null ? 'monaco' : strtolower($question->uiplugin);
         $fieldid = 'id_' . $fieldname;
         if ($uiplugin !== '' && $uiplugin !== 'none') {
             qtype_coderunner_util::load_uiplugin_js($question, $fieldid);

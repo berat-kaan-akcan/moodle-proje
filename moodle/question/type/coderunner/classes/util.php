@@ -33,7 +33,7 @@ class qtype_coderunner_util {
     public static function load_uiplugin_js($question, $textareaid) {
         global $PAGE;
 
-        $uiplugin = $question->uiplugin === null ? 'ace' : strtolower($question->uiplugin);
+        $uiplugin = $question->uiplugin === null ? 'monaco' : strtolower($question->uiplugin);
         if ($uiplugin !== '' && $uiplugin !== 'none') {
             $params = [$uiplugin, $textareaid];  // Params to plugin's init function.
             if (
