@@ -19,7 +19,12 @@ echo "  wwwroot: $MOODLE_WWWROOT"
 chk "wwwroot IP'si bu bilgisayarda tanımlı ($IP)" "ip -4 -br addr | grep -q \"$IP/\""
 CODE=$(curl -s -m 10 -o /dev/null -w '%{http_code}' "$MOODLE_WWWROOT/login/index.php")
 chk "giriş sayfası yanıt veriyor (HTTP $CODE)" "[ \"$CODE\" = 200 ] || [ \"$CODE\" = 303 ]"
-chk "güvenlik duvarında ${MOODLE_PORT}/tcp açık" "sudo -n firewall-cmd --list-ports | grep -q ${MOODLE_PORT}/tcp || sudo -n firewall-cmd --list-all | grep -q ${MOODLE_PORT}"
+LOC=$(curl -s -m 10 -o /dev/null -w '%{redirect_url}' "$MOODLE_WWWROOT/login/index.php")
+chk "Moodle bu adresi kullanıyor (yönlendirme: ${LOC:-yok})" "[ -z \"$LOC\" ] || [[ \"$LOC\" == \"$MOODLE_WWWROOT\"* ]]"
+# Port, adresin tanımlı olduğu arayüzün bölgesinde açık olmalı (kablolu ve Wi-Fi farklı bölgede olabilir)
+ARAYUZ=$(ip -4 -br addr | awk -v ip="$IP/" 'index($3, ip) == 1 {print $1; exit}')
+BOLGE=$(sudo firewall-cmd --get-zone-of-interface="$ARAYUZ" 2>/dev/null || sudo firewall-cmd --get-default-zone 2>/dev/null)
+chk "güvenlik duvarında ${MOODLE_PORT}/tcp açık (bölge: ${BOLGE:-?})" "sudo firewall-cmd --zone=$BOLGE --list-ports | grep -q ${MOODLE_PORT}/tcp"
 
 echo "== 3. Dış kaynak bağımlılığı (giriş sayfası) =="
 DIS=$(curl -s -m 10 -L "$MOODLE_WWWROOT/login/index.php" | grep -oE '(src|href)="https?://[^"]+"' | grep -v "$HOST" | sort -u)

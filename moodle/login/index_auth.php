@@ -46,62 +46,15 @@ $logintoken = \core\session\manager::get_login_token();
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <script src="../lib/jquery/jquery-3.7.1.min.js"></script>
     <style>
-    #left-cont { height: calc(100% - 60px); position: fixed; width: calc(100% - 530px); text-align:center; }
-    #closeLeftSide { position: absolute; top: 5px; right: 5px; }
-    #closeOnce { position: absolute; top: 5px; left: 5px; }
-    #left-cont img { height: 100%; max-width: 100%; object-fit: contain; }
-    @media (max-width: 767px){
-        #left-cont { z-index:10; width:100%; background:rgba(0,0,0,0.4); top:0; left:0; height:100%; padding:20px; }
-    }
-    @media (min-width: 768px){ 
-        #closeLeftSide{ display:none; }
-        #closeOnce{ display:none; }
-    }
     .page-login-v2:before {
-        background-image: url(skype_mountain.jpg);
+        background-image: url(muhendislik.jpg);
+        background-position: 80% center !important;
     }
     #blocker { display:none; position:fixed; top:0; bottom:0; left:0; right:0; width:100%; height:100%; z-index:200000; background: rgba(255,255,255,0.7); text-align: center; }
     #blocker img { top: 45%; position: relative; width: 80px; }
     #loginError { margin-bottom: 1rem; text-align: center; font-weight: bold; }
     </style>
 
-    <script>
-        function setCookie(name, value, days) {
-            var expires = "";
-            if (days) {
-                var date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                expires = "; expires=" + date.toUTCString();
-            }
-            document.cookie = name + "=" + (value || "") + expires + "; path=/";
-        }
-        function getCookie(name) {
-            var nameEQ = name + "=";
-            var ca = document.cookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-            }
-            return null;
-        }
-        $(document).ready(function () {
-            var activePopup = "guz2026";
-            var popupOpen = getCookie(activePopup) == null ? true : false;
-            if(popupOpen) {
-                $(".page-content").prepend('<div id="left-cont"><div class="btn btn-warning" id="closeOnce">KAPAT</div><div class="btn btn-danger" id="closeLeftSide">Bir daha gösterme</div><a href="https://uzem.mu.edu.tr/tr/kilavuzlar-8626" target="_blank"><img src="oturum.jpg" alt="Duyuru Görseli"></a></div>');
-                $("#closeLeftSide").on("click", function(e){
-                    e.stopPropagation();
-                    $("#left-cont").remove();	
-                    setCookie(activePopup, "true", 180);
-                });
-                $("#closeOnce").on("click", function(e){
-                    e.stopPropagation();
-                    $("#left-cont").remove();	
-                });
-            }
-        });
-    </script>
 </head>
 
 <body id="page-login-index" class="format-site path-login safari dir-ltr lang-tr yui-skin-sam yui3-skin-sam dys-mu-edu-tr pagelayout-login course-1 context-1 notloggedin page-login-v2 layout-full page-dark">

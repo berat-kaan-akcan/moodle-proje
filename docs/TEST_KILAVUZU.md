@@ -36,6 +36,9 @@ Testin cevaplaması gereken sorular:
 | [test/sunucu_kontrol.sh](../test/sunucu_kontrol.sh) | Sunucu | Servisler, adres/IP uyumu, güvenlik duvarı, dış bağlantı taraması, Jobe (normal + sonsuz döngü), güvenlik ayarları |
 | [test/istemci_kontrol.sh](../test/istemci_kontrol.sh) | PC‑2 (Linux) | İnternet yok kanıtı (ping/DNS/HTTPS), sunucuya erişim, dış kaynak taraması |
 | [test/yuk_testi.py](../test/yuk_testi.py) | Sunucu / Jobe konteyneri | Eşzamanlı yük: giriş sayfası ve Jobe |
+| [test/lab_hazirla.sh](../test/lab_hazirla.sh) | Sunucu | Kablolu lab ağına (switch) geçiş: IP'yi bulur, adresi günceller, yedek alır, 8080'i açar, uykuyu engeller, sunucu kontrolünü çalıştırır. `--geri` ile geri alır |
+| [test/istemci_kontrol.ps1](../test/istemci_kontrol.ps1) | Lab PC'si (Windows) | `istemci_kontrol.sh` karşılığı; ayrıca proxy ayarını ve IP'yi gösterir |
+| [test/sinav_yuk_testi.py](../test/sinav_yuk_testi.py) | Sunucu | Gerçekçi sınav yükü: sahte öğrenciler aynı anda giriş yapar, sınavı başlatır, her soruda **Kontrol et**'e basar, teslim eder |
 
 ```bash
 sudo bash test/sunucu_kontrol.sh                       # sudo: güvenlik duvarı kontrolü için
@@ -90,7 +93,15 @@ ping -c2 -W2 8.8.8.8                  # YANIT GELMEMELİ
 ```
 
 ### Seçenek 2: internetsiz router/switch
-Sunucu ve istemciler aynı internetsiz router'a bağlanır. IP'yi `ip -4 -br addr` ile öğrenin (örn. `192.168.1.25`).
+Sunucu ve istemciler aynı internetsiz router'a ya da lab switch'ine bağlanır. Kabloyu takın ve tek komutla hazırlayın (Bölüm 5'teki adımları kendisi yapar; `sudo` ile çalıştırmayın, gerektiğinde şifreyi kendisi sorar):
+
+```bash
+bash test/lab_hazirla.sh            # bağlı kablolu arayüzü kendisi bulur; elle: bash test/lab_hazirla.sh eno1
+```
+
+Betik sonunda lab PC'lerinde açılacak adresi yazar. Arayüz IP almıyorsa labda DHCP yoktur; betik elle IP verme komutunu gösterir, ama o durumda lab PC'lerine de aynı alt ağdan IP gerekir. Wi‑Fi'ı kapatın (`nmcli radio wifi off`), yoksa sunucu internete oradan çıkar. Test bitince: `bash test/lab_hazirla.sh --geri`.
+
+> **Yeniden başlatma sonrası ilk dakika:** Konteynerler yeniden oluşturulduktan hemen sonra önbellek boştur; aynı anda gelen ilk isteklerin bir kısmı "Önbelleğe almak için kilit alınamıyor" hatası alabilir. `lab_hazirla.sh` önbelleği önceden kurar, yine de öğrenciler başlamadan hoca hesabıyla sınavı ve bir soruyu bir kez açın. Sınav sırasında sunucuyu yeniden başlatmak zorunda kalırsanız aynısını yapıp öğrencileri ondan sonra içeri alın.
 
 ### Seçenek 3: internetli ağda istemci çıkışını engelleme
 Yalnızca mümkün olmazsa. Router'dan istemcilerin internet çıkışını engelleyin. T1 ile doğrulayın.
@@ -151,6 +162,12 @@ sudo bash test/sunucu_kontrol.sh             # tamamı GEÇTİ olmalı (T9 madde
 | 4 | Öğrenci girişi, kurs, sınav | Çalışır |
 
 Adresi **`http://`** ile yazın; Moodle'da HTTPS yok.
+
+### Lab PC'si (Windows)
+`test/istemci_kontrol.ps1` dosyasını USB ile taşıyın ve dosyanın olduğu klasörde PowerShell açın:
+```powershell
+powershell -ExecutionPolicy Bypass -File istemci_kontrol.ps1 http://<sunucu-IP>:8080
+```
 
 ### PC‑2 (Linux)
 ```bash
@@ -257,7 +274,15 @@ docker stats
 ```
 **Beklenen:** Hiç hata yok (`{200: 50}` ve `{15: 50}`), en yavaş yanıt birkaç saniyeyi geçmez, CPU/RAM sürekli %100'de kalmaz.
 Referans (bu bilgisayarda, internetsiz değil, tek sunucu üzerinde): 50 eşzamanlı Jobe işi hepsi başarılı, en yavaş ~1,6 sn.
-Gerçek yük için 3–5 cihazda aynı anda çok sekme açıp **Kontrol et**'e basın.
+Yukarıdaki betik yalnızca giriş sayfasını ve Jobe'u yoklar. Sınavın tamamını (oturum, veritabanı, Kontrol et, teslim) öğrenci olmadan denemek için:
+```bash
+python3 test/sinav_yuk_testi.py hazirla 40 4      # yuk01..yuk40 hesapları; 4 = sınavın cmid'i (/mod/quiz/view.php?id=4)
+python3 test/sinav_yuk_testi.py calistir          # adresi .env'den alır
+python3 test/sinav_yuk_testi.py temizle           # hesapları ve denemelerini siler; gerçek sınavdan önce ŞART
+```
+Her aşama bütün öğrenciler için aynı anda tetiklenir; çıktı aşama başına başarılı sayısını, ortanca ve en yavaş süreyi verir. Sınavda şifre ya da tek deneme hakkı varsa betik sınavı başlatamaz; yük testini bu ayarlardan önce yapın.
+Referans (bu bilgisayarda, 40 öğrenci, 4 kod sorusu): hata yok, en yavaş **Kontrol et** 2,8 sn, tamamı 9 sn.
+Ayrıca 3–5 lab PC'sinde aynı anda çok sekme açıp **Kontrol et**'e basın; betik tarayıcıyı ve switch'i denemez.
 **Kaldıysa:** Sunucuya RAM/CPU eksik ya da Jobe eşzamanlı iş sınırı; sonuçları (kaç kişi, kaç sn) rapora yazın.
 
 ### T8 – Sunucu dayanıklılığı

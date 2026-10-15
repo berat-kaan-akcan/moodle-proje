@@ -2,6 +2,10 @@
 # İstemci (PC-2, Linux) kontrolleri. Kullanım: bash test/istemci_kontrol.sh http://10.42.0.1:8080
 URL=${1:?Kullanım: bash test/istemci_kontrol.sh http://SUNUCU_IP:8080}
 HOST=${URL#http://}; IP=${HOST%%:*}
+# Araç eksikse "! komut" denetimleri yanlışlıkla GEÇTİ verir; önce varlıklarını doğrula.
+for arac in curl ping getent; do
+  command -v "$arac" >/dev/null || { echo "[HATA] '$arac' yok; bu makinede test geçersiz olur (Pardus: sudo apt install curl)."; exit 2; }
+done
 GEC=0; KAL=0
 ok()  { echo "  [GEÇTİ] $1"; GEC=$((GEC+1)); }
 bad() { echo "  [KALDI] $1"; KAL=$((KAL+1)); }

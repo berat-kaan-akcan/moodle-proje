@@ -18,9 +18,11 @@ $CFG->admin     = 'admin';
 $CFG->directorypermissions = 0777;
 // Özel giriş sayfası; DB'deki sabit localhost adresi yerine wwwroot'u takip etsin
 $CFG->alternateloginurl = $CFG->wwwroot . '/login/index_auth.php';
+// Girişten sonra kontrol paneli (/my) yerine site ana sayfası açılsın (0 = HOMEPAGE_SITE)
+$CFG->defaulthomepage = 0;
 
-// Geliştirme ayarları
-$CFG->debug = (E_ALL | E_STRICT);
-$CFG->debugdisplay = 1;
+// Sınav ayarı: hata ayıklama kapalı (geliştirirken açmak için: debug = E_ALL, debugdisplay = 1)
+$CFG->debug = 0;
+$CFG->debugdisplay = 0;
 
 require_once(__DIR__ . '/lib/setup.php');
