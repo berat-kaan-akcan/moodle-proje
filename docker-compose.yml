@@ -5,6 +5,7 @@ services:
       --character-set-server=utf8mb4
       --collation-server=utf8mb4_unicode_ci
       --innodb-file-per-table=1
+      --max-connections=300
     environment:
       MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
       MARIADB_DATABASE: ${DB_NAME}
@@ -60,6 +61,13 @@ services:
   # Port dışarıya açılmaz; Moodle ona iç ağdan "jobe" adıyla erişir.
   jobe:
     image: trampgeek/jobeinabox:latest
+    # Boş çalıştırma yeri bekleme süresi 10 sn → 180 sn: toplu teslimde "server overload" reddini önler.
+    command:
+      - sh
+      - -c
+      - >-
+        sed -i 's/jobe_wait_timeout = [0-9]*;/jobe_wait_timeout = 180;/' /var/www/html/jobe/app/Config/Jobe.php
+        && exec /usr/sbin/apache2ctl -D FOREGROUND
     restart: unless-stopped
 
 volumes:
