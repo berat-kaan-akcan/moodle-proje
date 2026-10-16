@@ -43,13 +43,19 @@ else
   nm connection add type ethernet ifname "$ARAYUZ" con-name "$BAG" ipv4.method auto ipv6.method disabled >/dev/null
   nm connection up "$BAG" >/dev/null 2>&1
   if ! bekle 20; then
-    # Sunucunun /24 ağından, MAC adresinin son baytına göre PC'ye özgü bir adres (100–249).
-    SON=$(( 16#$(cut -d: -f6 "/sys/class/net/$ARAYUZ/address") % 150 + 100 ))
-    ADRES=${SUNUCU%.*}.$SON
-    [ "$ADRES" = "$SUNUCU" ] && ADRES=${SUNUCU%.*}.$(( SON + 1 ))
-    echo "  DHCP yok; sabit IP veriliyor: $ADRES/24"
-    nm connection modify "$BAG" ipv4.method manual ipv4.addresses "$ADRES/24"
-    nm connection up "$BAG" >/dev/null
+    # Sunucunun /24 ağından 100–249 arası bir adres; MAC'e göre başlar. Aynı başlangıcı alan PC'ler olabileceğinden
+    # NetworkManager adresi almadan önce ağda soruyor (dad-timeout), kullanılıyorsa bir sonrakine geçiliyor.
+    BAS=$(( 16#$(cut -d: -f5,6 "/sys/class/net/$ARAYUZ/address" | tr -d :) ))
+    ADRES=
+    for i in $(seq 0 149); do
+      A=${SUNUCU%.*}.$(( (BAS + i) % 150 + 100 ))
+      [ "$A" = "$SUNUCU" ] && continue
+      nm connection modify "$BAG" ipv4.method manual ipv4.addresses "$A/24" ipv4.dad-timeout 2000
+      nm connection up "$BAG" >/dev/null 2>&1 && { ADRES=$A; break; }
+      echo "  $A kullanımda, sonraki deneniyor..."
+    done
+    [ -z "$ADRES" ] && { echo "  [KALDI] Boş adres bulunamadı:  nmcli connection up $BAG"; exit 1; }
+    echo "  DHCP yok; sabit IP verildi: $ADRES/24"
     bekle 10 || { echo "  [KALDI] Sunucuya ($SUNUCU) hâlâ ping gitmiyor. Aynı switch'te mi? Sunucuda lab_hazirla.sh çalıştı mı?"; exit 1; }
   fi
 fi
