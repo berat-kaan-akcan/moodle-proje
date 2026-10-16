@@ -68,7 +68,8 @@ fi
 if [ -z "$IP" ]; then
   # Labda DHCP yok: sunucu kendine sabit adres alır ve (dnsmasq varsa) lab PC'lerine IP dağıtır.
   # Wi-Fi kapalı olduğundan NetworkManager'ın paylaşım modu dışarıya internet vermez.
-  YONTEM=shared; command -v dnsmasq >/dev/null || YONTEM=manual
+  # Switch okul ağına da bağlıysa DHCP dağıtmamak için: LAB_YONTEM=manual bash test/lab_hazirla.sh
+  YONTEM=${LAB_YONTEM:-shared}; command -v dnsmasq >/dev/null || YONTEM=manual
   echo "  Labda DHCP yok; sunucu ${LAB_AG%/*} adresini alıyor (yöntem: $YONTEM)."
   nmcli connection delete lab >/dev/null 2>&1
   nmcli connection add type ethernet ifname "$ARAYUZ" con-name lab autoconnect no \

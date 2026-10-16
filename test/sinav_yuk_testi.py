@@ -20,6 +20,9 @@ KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 AYAR = os.path.join(KOK, "cikti", "yuk-testi.json")
 ZAMAN_ASIMI = 240
 KOD = "print(sum(range(200000)))"
+if os.environ.get("YUK_KOD"):  # ağır kodla denemek için: YUK_KOD=agir.py python3 test/sinav_yuk_testi.py calistir
+    with open(os.environ["YUK_KOD"], encoding="utf-8") as f:
+        KOD = f.read()
 
 
 def php(*arg):
