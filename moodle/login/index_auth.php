@@ -53,6 +53,25 @@ $logintoken = \core\session\manager::get_login_token();
     #blocker { display:none; position:fixed; top:0; bottom:0; left:0; right:0; width:100%; height:100%; z-index:200000; background: rgba(255,255,255,0.7); text-align: center; }
     #blocker img { top: 45%; position: relative; width: 80px; }
     #loginError { margin-bottom: 1rem; text-align: center; font-weight: bold; }
+    .password-wrapper { position: relative; }
+    .password-wrapper .form-control { padding-right: 2.5rem; }
+    .password-wrapper input::-ms-reveal,
+    .password-wrapper input::-ms-clear { display: none; }
+    .toggle-password {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        padding: 0;
+        color: #76838f;
+        cursor: pointer;
+        font-size: 1.1rem;
+        line-height: 1;
+        outline: none;
+    }
+    .toggle-password:hover, .toggle-password:focus { color: #37474f; outline: none; }
     </style>
 
 </head>
@@ -95,9 +114,12 @@ $logintoken = \core\session\manager::get_login_token();
                                     <input type="text" class="form-control" id="username" name="username" value="<?php echo htmlspecialchars($rememberedusername); ?>" placeholder="mailadresi@posta.mu.edu.tr" required autofocus>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group password-wrapper">
                                     <label for="password" class="sr-only">Şifre</label>
                                     <input type="password" name="password" id="password" value="" class="form-control" placeholder="Parola" required>
+                                    <button type="button" class="toggle-password" id="togglePassword" title="Şifreyi göster" aria-label="Şifreyi göster">
+                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                    </button>
                                 </div>
 
                                 <div class="form-group clearfix">
@@ -113,6 +135,19 @@ $logintoken = \core\session\manager::get_login_token();
 
                             <script>
                                 $(document).ready(function(){
+                                    $("#togglePassword").on("click", function(){
+                                        var passInput = $("#password");
+                                        var icon = $(this).find("i");
+                                        if (passInput.attr("type") === "password") {
+                                            passInput.attr("type", "text");
+                                            icon.removeClass("fa-eye").addClass("fa-eye-slash");
+                                            $(this).attr("title", "Şifreyi gizle").attr("aria-label", "Şifreyi gizle");
+                                        } else {
+                                            passInput.attr("type", "password");
+                                            icon.removeClass("fa-eye-slash").addClass("fa-eye");
+                                            $(this).attr("title", "Şifreyi göster").attr("aria-label", "Şifreyi göster");
+                                        }
+                                    });
                                     $("#login").submit(function(){
                                         $("#blocker").show();
                                     });

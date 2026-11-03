@@ -1,0 +1,14 @@
+admin
+Admin.1234!
+
+dogukan
+Dd.123456
+
+ogrenci_test1
+Test1234*
+
+ogrenci_test2
+Test1234*
+
+ogretmen_test1
+Test1234*
